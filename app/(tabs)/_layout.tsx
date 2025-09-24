@@ -1,35 +1,85 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { View, Text, Image } from "react-native";
+import React from "react";
+import { Tabs } from "expo-router";
+import { iconsImg } from "@/assets/asset";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const _layout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        // tabBarShowLabel: false,
+        tabBarStyle: {
+          borderTopLeftRadius: 50,
+          borderTopRightRadius: 50,
+          // borderBottomLeftRadius: 50,
+          // borderBottomRightRadius: 50,
+          // marginHorizontal: 20,
+          // paddingHorizontal: 10,
+          paddingTop: 10,
+          height: 80,
+          position: "absolute",
+          // bottom: 30,
+          backgroundColor: "black",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Home",
+          tabBarLabel: () => <Text className="text-white text-xs">Home</Text>,
+          tabBarIcon: ({ focused }) => (
+            <Image source={iconsImg.HomeImg} className="w-8 h-8" />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="about"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "About",
+          tabBarLabel: () => <Text className="text-white text-xs">About</Text>,
+          tabBarIcon: ({ focused }) => (
+            <Image source={iconsImg.ExploreImg} className="w-8 h-8" />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="project"
+        options={{
+          title: "Project",
+          tabBarLabel: () => (
+            <Text className="text-white text-xs">Project</Text>
+          ),
+          tabBarIcon: ({ focused }) => (
+            <Image source={iconsImg.ProjectImg} className="w-8 h-8" />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="skills"
+        options={{
+          title: "Skills",
+          tabBarLabel: () => <Text className="text-white text-xs">Skills</Text>,
+          tabBarIcon: ({ focused }) => (
+            <Image source={iconsImg.SkillImg} className="w-8 h-8" />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="contact"
+        options={{
+          title: "Contact",
+          tabBarLabel: () => (
+            <Text className="text-white text-xs">Contact</Text>
+          ),
+          tabBarIcon: ({ focused }) => (
+            <Image source={iconsImg.PhoneImg} className="w-8 h-8" />
+          ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default _layout;
