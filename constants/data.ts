@@ -1175,7 +1175,35 @@ export const skillData = {
   ],
 };
 
-export const educationData = {
+type education = {
+  id: String,
+  title: String,
+  institution: String,
+  location: String,
+  field: String,
+  type: String,
+  status: String,
+  grade: null,
+  timeline: {
+    start: String,
+    end: String,
+    duration: String,
+  },
+  description: String,
+  courses: String[],
+  projects: [
+    {
+      title: String,
+      description: String,
+      technologies: String[],
+      year: 2024,
+    },
+  ],
+  achievements: String[],
+  skillsLearned: String[],
+}
+
+export const educationData: { educations: education[] } = {
   education: [
     {
       id: "edu-001",
@@ -1302,7 +1330,21 @@ export const educationData = {
   ],
 };
 
-export const hobbyData = {
+type Hobby = {
+  id: String,
+  name: String,
+  category: String,
+  description: String,
+  relatedSkills: String[],
+  frequency: String,
+  since: String,
+  media: {
+    icon: String,
+    imageUrl: null, // Add a URL if you want to display a relevant image
+  },
+}
+
+export const hobbyData: { hobbies: Hobby[] } = {
   hobbies: [
     {
       id: "hobby-001",

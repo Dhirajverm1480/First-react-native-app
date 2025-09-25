@@ -20,7 +20,6 @@ const project = () => {
           return (
             <View className="p-3">
               <Pressable className="w-full h-48 flex-1 justify-end rounded-lg overflow-hidden">
-                {/* <Image source={ImageImg} className="w-32 h-24" /> */}
                 <ImageBackground
                   source={ImageImg}
                   className="w-full h-full absolute justify-center items-center"
