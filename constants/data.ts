@@ -1204,7 +1204,7 @@ type education = {
 }
 
 export const educationData: { educations: education[] } = {
-  education: [
+  educations: [
     {
       id: "edu-001",
       title: "Bachelor of Computer Application (BCA)",

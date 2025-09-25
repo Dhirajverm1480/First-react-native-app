@@ -38,7 +38,13 @@ const about = () => {
         <FlatList
           data={hobbyData.hobbies}
           renderItem={({ item, index }) => {
-            return <View></View>;
+            return (
+              <View className="border-b border-white rounded mb-3 mx-3 py-3">
+                <Text className="text-white">{item.name}</Text>
+                <Text className="text-white">{item.category}</Text>
+                <Text className="text-white">{item.description}</Text>
+              </View>
+            );
           }}
         />
       </ImageBackground>
